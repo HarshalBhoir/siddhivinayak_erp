@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="assets_backend" name="siddhivinayak_erp assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/siddhivinayak_erp/static/src/css/account.css"/>
+                <script type="text/javascript" src="/siddhivinayak_erp/static/src/js/disable_right_click.js"></script>
+                <script type="text/javascript" src="/siddhivinayak_erp/static/src/js/disable_copy_paste.js"></script>
+            </xpath>
+        </template>
+
+        <template id="assets_backend" name="Openworx Backend Theme" inherit_id="web.assets_backend">
+            <xpath expr=".">
+                <link rel="stylesheet" href="/siddhivinayak_erp/static/src/scss/style.scss"/>
+            </xpath>
+        </template>
+
+    </data>
+
+</odoo>

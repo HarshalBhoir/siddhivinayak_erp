@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!--    # Ageing report    -->
+    <record id="action_account_aged_balance_sv_view" model="ir.actions.report">
+        <field name="name">Aged Partner Balance</field>
+        <field name="model">res.partner</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">siddhivinayak_erp.report_svagedpartnerbalance</field>
+        <field name="report_file">siddhivinayak_erp.report_svagedpartnerbalance</field>
+    </record>
+    
+</odoo>

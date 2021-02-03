@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <template id="assets__portal_login" inherit_id="web.assets_frontend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/login_page/static/src/css/loginpage.css" />
+        </xpath>
+    </template>
+
+    <template id="login" inherit_id="web.login" name="Login Inherit">
+        <xpath expr="//form[@class='oe_login_form']" position="before">
+            <div class="text-center">
+                 <img t-attf-src="/web/binary/company_logo{{ '?dbname='+db if db else '' }}"/>
+             </div>
+        </xpath>
+    </template>
+
+
+				    <!-- background: rgb(2,0,36) !important;
+						background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 39%, rgba(0,212,255,1) 100%) !important; 
+
+											background: rgb(2,0,36) !important;
+background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,9,93,1) 50%, rgba(0,212,255,1) 100%) !important;-->
+					    
+    <!-- Features template background-color: #00aee3 !important; -->
+	<template id="login_layout_inherit" inherit_id="web.login_layout" name="Website Login Layout Inherit" priority="20">
+	    <xpath expr="t" position="replace">
+	        <t t-call="website.layout">
+	            <div class="oe_website_login_container" t-raw="0"/>
+	            <style type="text/css">
+					#wrapwrap {
+	
+
+
+						background: rgb(2,0,36);
+						background: linear-gradient(180deg, rgba(2,0,36,1) 1%, rgba(6,6,129,1) 63%, rgba(15,171,203,1) 100%);
+					    overflow: hidden;
+					}
+			    
+				        .navbar {
+				             visibility: hidden;
+				        }
+
+				        footer {
+					    visibility: hidden;
+					}
+
+					.o_form_view .o_group .o_td_label .o_form_label {
+					    font-weight: bold;
+					    margin-right: 0px;
+					    font-size: 17px;
+					    padding: 2px;
+					}
+
+					@media (max-width: 768px){
+
+					main .oe_website_login_container {
+					    vertical-align: middle;
+					    padding: 40px 65px 0px;
+					    border: 1px solid #ccc;
+					    border-radius: 5px;
+					    float: none;
+					    background-color: #FFF;
+					    box-shadow: 0.33px 3px 12px rgba(0, 0, 0, 0.3);
+					    width: 90%;
+					    margin: -15px auto;
+					}
+
+					}
+
+			    </style>
+	        </t>
+	    </xpath>
+	</template>
+    
+</odoo>

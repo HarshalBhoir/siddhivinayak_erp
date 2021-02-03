@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="True">
+        <record id="base.partner_admin" model="res.partner" >
+            <field name="name">Siddhivinayak Admin</field>
+            <field name="company_id" eval="None"/>
+            <field name="lang">en_US</field>
+            <field name="active">True</field>
+            <field name="type">contact</field>
+            <field name="street">Sec-R4,Plot no 116</field>
+            <field name="street2">Uran panvel road,</field>
+            <field name="zip">410206</field>
+            <field name="city">Panvel</field>
+            <field name="state_id">597</field>
+            <field name="country_id">104</field>
+            <field name="mobile">99877 18382</field>
+            <field name="image_1920" type="base64" file="siddhivinayak_erp/static/description/sid_banner.png"/>
+        </record>
+    </data>
+</odoo>

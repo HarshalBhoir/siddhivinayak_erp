@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record model="ir.module.category" id="module_category_siddhivinayak_erp">
+        <field name="name">RealEstate ERP Mgmt</field>
+        <field name="description">Helps you manage your QR Code processes.</field>
+        <field name="sequence">98</field>
+    </record>
+        
+    <record id="group_siddhivinayak_erp_user_sv" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="siddhivinayak_erp.module_category_siddhivinayak_erp"/>
+        <field name="implied_ids" eval="[]"/>
+        <field name="comment">the User will have access to his own data in the application.</field>
+    </record>
+
+    <record id="group_siddhivinayak_erp_manager_sv" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="siddhivinayak_erp.module_category_siddhivinayak_erp"/>
+        <field name="implied_ids" eval="[(4, ref('siddhivinayak_erp.group_siddhivinayak_erp_user_sv'))]"/> 
+        <field name="comment">the User will have access to all data in the application.</field>
+    </record>
+
+    <record id="group_sv_re_hidden" model="res.groups">
+        <field name="name">IT Admin / Hidden</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        <field name="comment">User group to hide all unused menus in the application.</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_partner_form_inherit" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="vat" position="after" >
+                    <field name="total_amount" />
+                    <field name="total_amount_pending" />
+                    <field name="partner_optout" groups="siddhivinayak_erp.group_sv_re_hidden"/>
+                </field>
+
+                <field name="category_id" position="after" >
+                    <field name="bank_reference" />
+                    <field name="bank_id" options="{'no_create': True, 'no_edit': True,  'no_open': True}" />
+                    <field name="bank_branch" />
+                    <field name="ifsc_code" />
+                </field>
+
+                <page name="sales_purchases" position='attributes' >
+                    <attribute name ="invisible">1</attribute>
+                </page>
+
+                <page name="accounting" position='attributes' >
+                    <attribute name ="invisible">1</attribute>
+                </page>
+
+                <field name="website" position='attributes' >
+                    <attribute name ="invisible">1</attribute>
+                </field>
+
+                <field name="category_id" position='attributes' >
+                    <attribute name ="invisible">1</attribute>
+                </field>
+
+                <field name="vat" position='attributes' >
+                    <attribute name ="string">VAT/GST</attribute>
+                </field>
+
+            </field>
+        </record>
+
+        <record id="partner_view_buttons_extension" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account.partner_view_buttons"/>
+            <field name="arch" type="xml">
+
+                <button name="action_view_partner_invoices" position='attributes' >
+                    <attribute name ="invisible">1</attribute>
+                </button>
+
+                <div name="button_box" position="inside">
+                    <button name="action_customer_payment_received" type="object"
+                        class="oe_inline oe_stat_button" 
+                        icon="fa-money" context="{'default_partner_id': active_id}">
+                        <div class="o_form_field o_stat_info">
+                            <span class="o_stat_value" style="max-width: 100%;">
+                                <field name="currency_id" invisible="1"/>
+                                <field name="total_received" widget='monetary' 
+                                    options="{'currency_field': 'currency_id'}"/>
+                            </span>
+                            <span class="o_stat_text" style="width: 150px;">Reciepts</span>
+                        </div>
+                    </button>
+                    <button name="action_supplier_payment_paid" type="object"
+                        class="oe_inline oe_stat_button" 
+                        icon="fa-money" context="{'default_partner_id': active_id}">
+                        <div class="o_form_field o_stat_info">
+                            <span class="o_stat_value" style="max-width: 100%;">
+                                <field name="currency_id" invisible="1"/>
+                                <field name="total_paid" widget='monetary' 
+                                    options="{'currency_field': 'currency_id'}"/>
+                            </span>
+                            <span class="o_stat_text" style="width: 150px;">Payments</span>
+                        </div>
+                    </button>
+                </div>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+
+  <menuitem id="sv_bank_menu" name="Banks" action="base.action_res_bank_form"
+            parent="account.account_banks_menu" sequence="-1"/>
+
+  <menuitem id="sv_partner_bank_menu" name="Bank Accounts" action="base.action_res_partner_bank_account_form"
+            parent="account.account_banks_menu" sequence="-2"/>
+
+  <menuitem name="Accounts" id="menu_masters_accounts" groups='group_siddhivinayak_erp_user_sv'
+            sequence="4"  web_icon="account,static/description/icon.png" />
+
+  <menuitem id="menu_masters_accounts_customer" name="Customer Entries" parent="menu_masters_accounts" sequence="1"/>
+
+  <menuitem id="menu_action_move_out_invoice_type_sdb" action="action_move_out_invoice_type_sdb" name="Customer Agreement"
+            parent="menu_masters_accounts_customer" sequence="1"/>
+
+  <menuitem id="menu_masters_accounts_customer_payment" name="Customer Payment" action="account.action_account_payments"
+            parent="menu_masters_accounts_customer" sequence="2"/>
+
+  <menuitem id="menu_account_customer" name="Customers" action="account.res_partner_action_customer"
+            parent="menu_masters_accounts_customer" sequence="3"/>
+
+  <menuitem id="menu_masters_accounts_supplier" name="Vendor Entries" parent="menu_masters_accounts" sequence="2"/>
+
+  <menuitem id="menu_action_move_in_invoice_type_sdb" action="action_move_in_invoice_type_sdb"
+            parent="menu_masters_accounts_supplier" sequence="1" name="Vendor Agreement"/>
+
+  <menuitem id="menu_masters_accounts_vendor_payment" name="Vendor Payment" action="account.action_account_payments_payable"
+            parent="menu_masters_accounts_supplier" sequence="2"/>
+
+
+
+  <menuitem id="menu_account_supplier" name="Vendors" action="account.res_partner_action_supplier"
+            parent="menu_masters_accounts_supplier" sequence="4"/>
+
+  <menuitem name="Report" id="menu_masters_accounts_report" groups='group_siddhivinayak_erp_manager_sv'
+            parent="menu_masters_accounts" sequence="5" />
+
+  <menuitem id="menu_action_account_moves_ledger_customer" action="action_account_moves_ledger_customer_sv"
+            sequence="1" parent="menu_masters_accounts_report"/>
+
+  <menuitem id="menu_action_account_moves_ledger_vendor" action="action_account_moves_ledger_supplier_sv"
+            sequence="2" parent="menu_masters_accounts_report"/>
+
+  <menuitem name="Partner Ledger" id="sv_menu_action_account_moves_partner_general"  sequence="3"
+            action="account.action_account_moves_ledger_partner" parent="menu_masters_accounts_report" />
+
+  <menuitem name="Bank and Cash" id="sv_menu_action_account_moves_journal_bank_cash"  sequence="5"
+            action="account.action_account_moves_journal_bank_cash" parent="menu_masters_accounts_report"  />
+
+  <menuitem name="General Ledger" id="sv_action_account_moves_ledger_general" sequence="6"
+            action="account.action_account_moves_ledger_general" parent="menu_masters_accounts_report"
+            groups='group_siddhivinayak_erp_manager_sv' />
+
+  <menuitem id="menu_print_payment_summary_report33" name="Payment Summary Report"
+            sequence="7" action="action_print_payment_summary33" parent="menu_masters_accounts_report"/>
+
+  <menuitem id="menu_sv_aged_trial_balance" name="Aged Partner Balance" sequence="8"
+            action="action_account_aged_balance_sv_view" parent="menu_masters_accounts_report"/>
+
+  <menuitem name="Setting" id="sv_action_account_config" action="account.action_account_config" sequence="8"
+            parent="menu_masters_accounts_report" />
+
+
+  <record id="contacts.menu_contacts" model="ir.ui.menu">
+      <field name="groups_id" eval="[(6, 0, [ref('siddhivinayak_erp.group_siddhivinayak_erp_manager_sv')])]"/>
+  </record>
+
+  <record id="account.menu_finance" model="ir.ui.menu">
+    <field name="groups_id" eval="[(6, 0, [ref('siddhivinayak_erp.group_sv_re_hidden')])]"/>
+  </record>
+
+  <record id="website.menu_website_configuration" model="ir.ui.menu">
+    <field name="groups_id" eval="[(6, 0, [ref('siddhivinayak_erp.group_sv_re_hidden')])]"/>
+  </record>
+
+  <record id="base.menu_management" model="ir.ui.menu">
+    <field name="groups_id" eval="[(6, 0, [ref('siddhivinayak_erp.group_sv_re_hidden')])]"/>
+  </record>
+
+</odoo>

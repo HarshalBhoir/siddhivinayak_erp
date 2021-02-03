@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_print_payment_summary_form" model="ir.ui.view">
+            <field name="name">print.payment.summary.form</field>
+            <field name="model">print.payment.summary</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Print Payment Summary Report">
+                        <field name="payment_report_printed" invisible="1"/>
+                        <group attrs="{'invisible':[('payment_report_printed','=',True)]}">
+                            <group>
+                                <field name="from_date" required="1" style="width:200px;"/>
+                                <field name="to_date" required="1" style="width:200px;"/>
+                            </group>
+                        </group>
+                        <group attrs="{'invisible':[('payment_report_printed','=',False)]}">
+                            <field name="file_name" invisible="1"/>
+                            <field name="payment_summary_file" readonly="1" filename="file_name"/>
+                        </group>
+                    <footer>
+                    <button string='Print Detail' name="action_print_payment_detail" 
+                        type="object" class="btn-primary" attrs="{'invisible':[('payment_report_printed','=',True)]}"/>
+                    <button string='Print Summary' name="action_print_payment_summary" 
+                        type="object" class="btn-primary" attrs="{'invisible':[('payment_report_printed','=',True)]}"/>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+       
+
+    <record id="action_print_payment_summary33" model="ir.actions.act_window">
+        <field name="name">Print Payment Summary Report</field>
+        <field name="res_model">print.payment.summary</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_print_payment_summary_form"/>
+        <field name="target">new</field>
+    </record>
+
+
+    </data>
+</odoo>
